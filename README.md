@@ -15,7 +15,7 @@
   Your lab directory must include  
   * **README.md** -- with a documentation about your lab
   * **.gitignore** -- with a robust .gitignore
-  * **.eslintrc** -- with the class .eslintrc file
+  * **.eslintrc.json** -- with the class .eslintrc.json file
   * **.eslintignore** -- with the class .eslintignore
   * **.package.json** -- with all dependencies and dev-dependencies
   * **lib/** -- directory for holding your programs helper modules
@@ -23,7 +23,7 @@
 
 
 ####  Documentation  
-  * in your README, write documentation for you data structures
+  * in your README, write documentation for your data structures
   * your documentation should includes code block usage examples
   * provide instructions for:
     * installing and using your data structure
