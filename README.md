@@ -29,14 +29,15 @@
     * installing and using your data structure
     * accessing each method
     * running your tests
-
+* Add a `remove(value)` method to the BinarySearchTree class presented in class. 
 #### Feature Tasks  
+* Add a `remove(value)` method to the BinarySearchTree class presented in class. 
+
 * Implement a K-ary-Tree Constructor (__not an ES6 class__)
   * implement the following prototype methods
     * `find(value)` should iterate over all child nodes using a breath-first traversal and return the first node that has that value, it should return null if a node with the value is not found
     * `toString(str)` should iterate over all child nodes using a breath-first traversal and concatenate their values separated by newlines in to a string
     * `toArray(array)` should use a depth-first traversal and push all the tree's elements into an array.
-* Add a `remove(value)` method to the BinarySearchTree class presented in class. 
   
 ##### Big O
   In the `readme.md` of your application, include the Big O complexity (time and space) for all the implemented methods.
