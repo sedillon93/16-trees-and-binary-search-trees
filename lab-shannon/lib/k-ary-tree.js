@@ -1,8 +1,10 @@
 'use strict';
+// let Queue = require(`./queue`);
+// let Stack = require(`./stack`);
 
 function KAryTree(value){
   this.value = value;
-  this.children = [];
+  this._children = [];
 
 }
 
@@ -10,14 +12,15 @@ KAryTree.prototype.appendChild = (child) => {
   if(!(child instanceof KAryTree)){
     throw new TypeError(`The value to append must be a K-ary Tree`);
   }
-
-  this.children.push(child);
+  this._children.push(child);
 }
 
-KAryTree.prototype.breadthSearch = (value) => {
-  
-}
+KAryTree.prototype.find = (value){   // breadth (queue)
 
-find(value) // breadth
-toString(str) // breadth
-toArray(array)  //depth
+}
+KAryTree.prototype.toString = (str){    // breadth (queue)
+
+}
+KAryTree.prototype.toArray = (array){     //depth (stack)
+
+}
