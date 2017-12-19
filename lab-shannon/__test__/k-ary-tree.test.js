@@ -1,5 +1,7 @@
 'use strict';
 
+const KAryTree = require(`../lib/k-ary-tree`);
+
 describe(`K-Ary Tree`, () => {
   test(`find method should return the first node matching the specified value if no errors are present`, () => {
     let four = new KAryTree(4);

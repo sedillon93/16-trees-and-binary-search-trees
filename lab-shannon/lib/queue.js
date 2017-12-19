@@ -1,7 +1,7 @@
 'use strict';
 
 class Queue{
-  constructor{
+  constructor(){
     this.data = [];
   }
 

@@ -1,7 +1,7 @@
 'use strict';
 
 class Stack{
-  constructor{
+  constructor(){
     this.data = [];
   }
 

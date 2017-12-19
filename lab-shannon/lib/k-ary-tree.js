@@ -12,14 +12,14 @@ KAryTree.prototype.appendChild = (child) => {
     throw new TypeError(`The value to append must be a K-ary Tree`);
   }
   this._children.push(child);
-}
+};
 
-KAryTree.prototype.find = (value){   // breadth (queue)
+KAryTree.prototype.find = function(value){   // breadth (queue)
 
-}
-KAryTree.prototype.toString = (str){    // breadth (queue)
+};
+KAryTree.prototype.toString = function(str){    // breadth (queue)
 
-}
-KAryTree.prototype.toArray = (array){     //depth (stack)
+};
+KAryTree.prototype.toArray = function(array){     //depth (stack)
 
-}
+};
