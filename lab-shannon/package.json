@@ -4,7 +4,7 @@
   "description": "binary search trees",
   "main": "index.js",
   "scripts": {
-    "test": "jest --i -coverage",
+    "test": "jest -i --coverage",
     "lint": "eslint ./"
   },
   "author": "shannon",
