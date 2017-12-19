@@ -5,7 +5,6 @@
 function KAryTree(value){
   this.value = value;
   this._children = [];
-
 }
 
 KAryTree.prototype.appendChild = (child) => {
