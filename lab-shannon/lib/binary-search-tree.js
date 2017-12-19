@@ -31,4 +31,22 @@ class BinarySearchTree{
       return;
     }
   }
+
+  find(value){
+    if(this.value === value){
+      return this;
+    }
+    else if(this.value > value){
+      if(this.left){
+        return this.left.find(value);
+      }
+      return null;
+    }
+    else if(this.value < value){
+      if(this.right){
+        return this.right.find(value);
+      }
+      return null;
+    }
+  }
 }
