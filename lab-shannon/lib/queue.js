@@ -12,6 +12,10 @@ class Queue{
   dequeue(){
     return this.data.shift();
   }
+
+  length(){
+    return this.data.length();
+  }
 }
 
 module.exports = Queue;

@@ -12,12 +12,24 @@ KAryTree.prototype.appendChild = function(child){
   if(!(child instanceof KAryTree)){
     throw new TypeError(`The value to append must be a K-ary Tree`);
   }
-  console.log(this);
   this._children.push(child);
 };
 
 KAryTree.prototype.find = function(value){   // breadth (queue)
+  let queue = new Queue();
+  queue.enqueue(this);
+  let current = null;
 
+  while(queue.length > 0){
+    current = queue.dequeue();
+    if (current.value === value){
+      return current;
+    }
+    for(child in current.children){
+      queue.enqueue(child);
+    }
+  }
+  return null;
 };
 KAryTree.prototype.toString = function(str){    // breadth (queue)
 
