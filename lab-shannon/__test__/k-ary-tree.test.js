@@ -86,5 +86,11 @@ describe(`K-Ary Tree`, () => {
       expect(four.toArray([])[4].value).toEqual(9);
       expect(four.toArray([])[5].value).toEqual(7);
     });
+
+    test(`toArray method should throw a Type Error if the argument provided is not an object (i.e. array)`, () => {
+      expect(() => {
+        three.toArray(ahdsjl).toThrow();
+      });
+    });
   });
 });

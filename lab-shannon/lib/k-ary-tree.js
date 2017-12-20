@@ -51,6 +51,9 @@ KAryTree.prototype.toString = function(str){    // breadth (queue)
 };
 
 KAryTree.prototype.toArray = function(array){     //depth (stack)
+  if(typeof array !== 'object'){
+    throw new TypeError(`You must provide an array to add elements to`);
+  }
   let stack = new Stack();
   stack.push(this);
   let current = null;
@@ -63,7 +66,6 @@ KAryTree.prototype.toArray = function(array){     //depth (stack)
       stack.push(child);
     }
   }
-  console.log(array);
   return array;
 };
 
