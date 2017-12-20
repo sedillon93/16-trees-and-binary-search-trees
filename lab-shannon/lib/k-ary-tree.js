@@ -49,6 +49,7 @@ KAryTree.prototype.toString = function(str){    // breadth (queue)
   }
   return str.trim();
 };
+
 KAryTree.prototype.toArray = function(array){     //depth (stack)
   let stack = new Stack();
   stack.push(this);
@@ -62,6 +63,7 @@ KAryTree.prototype.toArray = function(array){     //depth (stack)
       stack.push(child);
     }
   }
+  console.log(array);
   return array;
 };
 

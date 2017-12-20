@@ -77,9 +77,14 @@ describe(`K-Ary Tree`, () => {
       three.appendChild(seven);
       three.appendChild(fifteen);
       three.appendChild(two);
-      two.appendChild(nine);
-      
-      expect(four.toArray([])).toEqual();
+      fifteen.appendChild(nine);
+
+      expect(four.toArray([])[0].value).toEqual(4);
+      expect(four.toArray([])[1].value).toEqual(3);
+      expect(four.toArray([])[2].value).toEqual(2);
+      expect(four.toArray([])[3].value).toEqual(15);
+      expect(four.toArray([])[4].value).toEqual(9);
+      expect(four.toArray([])[5].value).toEqual(7);
     });
   });
 });
