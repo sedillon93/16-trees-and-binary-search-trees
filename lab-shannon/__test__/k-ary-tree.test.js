@@ -17,7 +17,7 @@ describe(`K-Ary Tree`, () => {
     three.appendChild(two);
     two.appendChild(nine);
 
-    expect(four.find(7)).toEqual(7);
+    expect(four.find(7).value).toEqual(7);
   });
 
   test(`find method should return null if there is no node with the specified value`, () => {

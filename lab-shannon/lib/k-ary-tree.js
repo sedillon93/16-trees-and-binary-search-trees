@@ -20,12 +20,12 @@ KAryTree.prototype.find = function(value){   // breadth (queue)
   queue.enqueue(this);
   let current = null;
 
-  while(queue.length > 0){
+  while(queue.length() > 0){
     current = queue.dequeue();
     if (current.value === value){
       return current;
     }
-    for(child in current.children){
+    for(let child of current._children){
       queue.enqueue(child);
     }
   }
