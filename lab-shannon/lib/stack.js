@@ -12,6 +12,10 @@ class Stack{
   pop(){
     return this.data.pop();
   }
+
+  length(){
+    return this.data.length;
+  }
 }
 
 module.exports = Stack;

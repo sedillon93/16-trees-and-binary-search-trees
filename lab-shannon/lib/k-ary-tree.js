@@ -50,7 +50,19 @@ KAryTree.prototype.toString = function(str){    // breadth (queue)
   return str.trim();
 };
 KAryTree.prototype.toArray = function(array){     //depth (stack)
+  let stack = new Stack();
+  stack.push(this);
+  let current = null;
 
+  while(stack.length() > 0){
+    current = stack.pop();
+    array.push(current);
+
+    for(let child of current._children){
+      stack.push(child);
+    }
+  }
+  return array;
 };
 
 module.exports = KAryTree;

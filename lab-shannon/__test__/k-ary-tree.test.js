@@ -63,4 +63,23 @@ describe(`K-Ary Tree`, () => {
       });
     });
   });
+
+  describe(`toArray method`, () => {
+    test(`toArray method should return an array of all elements if there are no errors`, () => {
+      let four = new KAryTree(4);
+      let three = new KAryTree(3);
+      let seven = new KAryTree(7);
+      let fifteen = new KAryTree(15);
+      let two = new KAryTree(2);
+      let nine = new KAryTree(9);
+
+      four.appendChild(three);
+      three.appendChild(seven);
+      three.appendChild(fifteen);
+      three.appendChild(two);
+      two.appendChild(nine);
+      
+      expect(four.toArray([])).toEqual();
+    });
+  });
 });
