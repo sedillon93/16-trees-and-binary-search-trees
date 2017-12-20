@@ -32,7 +32,20 @@ KAryTree.prototype.find = function(value){   // breadth (queue)
   return null;
 };
 KAryTree.prototype.toString = function(str){    // breadth (queue)
+  let queue = new Queue();
+  queue.enqueue(this);
+  let current = null;
 
+  while(queue.length() > 0){
+    current = queue.dequeue();
+    str += current.value + `\n`;
+
+    for(let child of current._children){
+      queue.enqueue(child);
+    }
+  }
+  console.log(str.trim());
+  return str.trim();
 };
 KAryTree.prototype.toArray = function(array){     //depth (stack)
 
