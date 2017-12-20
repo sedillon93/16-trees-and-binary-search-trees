@@ -32,6 +32,9 @@ KAryTree.prototype.find = function(value){   // breadth (queue)
   return null;
 };
 KAryTree.prototype.toString = function(str){    // breadth (queue)
+  if(typeof str !== 'string'){
+    throw new TypeError(`You must provide a string to concatenate values onto`);
+  }
   let queue = new Queue();
   queue.enqueue(this);
   let current = null;
@@ -44,7 +47,6 @@ KAryTree.prototype.toString = function(str){    // breadth (queue)
       queue.enqueue(child);
     }
   }
-  console.log(str.trim());
   return str.trim();
 };
 KAryTree.prototype.toArray = function(array){     //depth (stack)

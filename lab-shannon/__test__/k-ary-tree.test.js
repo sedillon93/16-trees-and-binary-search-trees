@@ -50,7 +50,13 @@ describe(`K-Ary Tree`, () => {
     three.appendChild(fifteen);
     three.appendChild(two);
     two.appendChild(nine);
-    
+
     expect(four.toString('Hello: ')).toEqual(`Hello: 4\n3\n7\n15\n2\n9`);
   });
+
+  test(`toString method should throw an error if passed an argument other than a string`, () => {
+    expect(() => {
+      three.toString(24).toThrow();
+    });
+  })
 });
