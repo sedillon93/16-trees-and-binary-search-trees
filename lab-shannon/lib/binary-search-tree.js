@@ -64,6 +64,9 @@ class BinarySearchTree{
         else if(this.left.right){
           this.left = this.left.right;
         }
+        else{
+          this.left = null;
+        }
       }
       else if(this.left){
         this.left.remove(value);
@@ -74,11 +77,26 @@ class BinarySearchTree{
       }
     }
     if(this.value < value){
-      if(this.right){
-        this.right.remove(value);
-        return;
+      if(this.right.value === value){
+        if(this.right.left && this.left.left){
+          // need to restructure tree
+        }
+        else if(this.right.left){
+          this.right = this.right.left;
+        }
+        else if(this.right.right){
+          this.right = this.right.right;
+        }
+        else{
+          this.right = null;
+        }
       }
-      return null;
+      else if(this.right){
+        this.right.remove(value);
+      }
+      else{
+        return null;
+      }
     }
   }
 }
