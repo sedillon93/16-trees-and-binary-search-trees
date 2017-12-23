@@ -34,7 +34,7 @@ class BinarySearchTree{
         node.left = new TreeNode(value);
         return;
       }
-      this.left._insert(node.left, value);
+      this._insert(node.left, value);
       return;
     }
     if(this.value < value){
@@ -42,7 +42,7 @@ class BinarySearchTree{
         node.right = new TreeNode(value);
         return;
       }
-      this.right._insert(node.right, value);
+      this._insert(node.right, value);
       return;
     }
   }
@@ -56,24 +56,15 @@ class BinarySearchTree{
       return null;
     }
     else if(node.value === value){
-      return this;
+      return node;
     }
     else if(node.value > value){
-      return this.left._find(value);
+      return node.left._find(value);
     }
     else if(node.value < value){
-      return this.right._find(value);
+      return node.right._find(value);
     }
   }
-
-  // _findSmallest(node){
-  //   if(node.left){
-  //     _findSmallest(node.left);
-  //   }
-  //   else if(!node.left){
-  //     return node;
-  //   }
-  // }
 
   _findBiggest(node){
     if(node.right){
@@ -85,6 +76,34 @@ class BinarySearchTree{
   }
 
   remove(value){
+    return this._remove(node, value);
+  }
+
+  _remove(node, value, parent){
+    if(!node){
+      return null;
+    }
+    else if(node.value === value){
+      if(node.left && node.right){
+        node.value = this._findBiggest(node.left);  // this copies the value of the smallest node on the left branch and assigns it as the new value of the 'deleted' node
+        this._remove(node.left, node.value);    // this finds the duplicate value and deletes it
+      }
+      else if(node.left || node.right){}
+      else{}
+    }
+    else if(node.value > value){
+      if(node.left.value){
+        return this._remove(node.left, value, node)
+      }
+      return null;
+    }
+    else if(node.value > value){
+      if(node.right.value){
+        return this._remove(node.right, value, node)
+      }
+      return null;
+    }
+  }
   //   if(this.value === value){
   //     if(this.left && this.right){
   //       let newRoot = _findBiggest(this.left);
@@ -136,5 +155,4 @@ class BinarySearchTree{
   //       return null;
   //     }
   //   }
-  }
 }
