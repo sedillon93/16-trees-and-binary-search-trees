@@ -70,7 +70,7 @@ class BinarySearchTree{
       this._findBiggest(node.right);
     }
     else if(!node.right){
-      return node;
+      return node.value;
     }
   }
 
@@ -85,8 +85,7 @@ class BinarySearchTree{
     else if(node.value === value){
       if(node.left && node.right){
         node.value = this._findBiggest(node.left);  // this copies the value of the smallest node on the left branch and assigns it as the new value of the 'deleted' node
-        // console.log(node.left);
-        this._remove(node.left, node.value);    // this finds the duplicate value and deletes it
+        this._remove(node.left, node.value, node);    // this finds the duplicate value and deletes it
         return;
       }
       else if(node.left){
@@ -108,14 +107,11 @@ class BinarySearchTree{
         return;
       }
       else{
-        // console.log(`there are no children of ${node.value}`);
         if(parent.left.value === value){
           parent.left = null;
-          // console.log(parent, `left`);
         }
         else if(parent.right.value === value){
           parent.right = null;
-          // console.log(parent, `right`);
         }
       }
       return;

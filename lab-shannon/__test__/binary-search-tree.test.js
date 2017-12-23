@@ -13,13 +13,22 @@ describe(`Binary Search Tree`, () => {
   tree.insert(21);
   tree.insert(19);
   tree.insert(6);
+  tree.insert(23);
+  tree.insert(27);
 
-    test(`BST remove method should remove a node with the specified value and restructure the tree if necessary if there are no errors`, () => {
+    test(`BST remove method should remove a node with the specified value and set its parent pointer to null if it has no children`, () => {
       tree.remove(3);
       expect(tree.root.left.left).toEqual(null);
     });
-    test.only(`BST remove method should remove a node with the specified value and restructure the tree if necessary if there are no errors`, () => {
+    test(`BST remove method should remove a node with the specified value and restructure the tree if the node has children`, () => {
       tree.remove(8);
       expect(tree.root.left.right.value).toEqual(6);
+    });
+    test.only(`BST remove method should remove a node with the specified value and restructure the tree if the node has children`, () => {
+      tree.remove(21);
+      expect(tree.root.right.value).toEqual(17);
+      expect(tree.root.right.left.value).toEqual(13);
+      expect(tree.root.right.right.value).toEqual(19);
+      expect(tree.root.right.right.right.value).toEqual(23);
     });
 })
