@@ -1,102 +1,140 @@
 'use strict';
 
-class BinarySearchTree{
-  constructor(value){
+class TreeNode{
+  constructor(value, left, right){
     this.value = value;
-    this.left = null;
-    this.right = null;
+    this.left = left;
+    this.right = right;
   }
+}
+
+class BinarySearchTree{
+  constructor(){
+    this.root = null;
+  }
+}
 
   insert(value){
+    if(root === null){
+      this.root = new TreeNode(value);
+    }
+    else{
+      this._insert(this.root, value);
+    }
+  }
+  _insert(node, value){
     if(typeof value !== 'number'){
       throw new TypeError(`You can only insert numbers`);
     }
-    if(this.value === value){
+    if(node.value === value){
       throw new TypeError(`That value is already present; You cannot create duplicate numbers`);
     }
-    if(this.value > value){
-      if(!this.left){
-        this.left = new BinarySearchTree(value);
+    if(node.value > value){
+      if(!node.left){
+        node.left = new TreeNode(value);
         return;
       }
-      this.left.insert(value);
+      this.left._insert(node.left, value);
       return;
     }
     if(this.value < value){
-      if(!this.right){
-        this.right = new BinarySearchTree(value);
+      if(!node.right){
+        node.right = new TreeNode(value);
         return;
       }
-      this.right.insert(value);
+      this.right._insert(node.right, value);
       return;
     }
   }
 
   find(value){
-    if(this.value === value){
+    return this._find(this.root, value);
+  }
+
+  _find(node, value){
+    if(!node){
+      return null;
+    }
+    else if(node.value === value){
       return this;
     }
-    else if(this.value > value){
-      if(this.left){
-        return this.left.find(value);
-      }
-      return null;
+    else if(node.value > value){
+      return this.left._find(value);
     }
-    else if(this.value < value){
-      if(this.right){
-        return this.right.find(value);
-      }
-      return null;
+    else if(node.value < value){
+      return this.right._find(value);
+    }
+  }
+
+  // _findSmallest(node){
+  //   if(node.left){
+  //     _findSmallest(node.left);
+  //   }
+  //   else if(!node.left){
+  //     return node;
+  //   }
+  // }
+
+  _findBiggest(node){
+    if(node.right){
+      _findBiggest(node.right);
+    }
+    else if(!node.right){
+      return node;
     }
   }
 
   remove(value){
-    //remove the specified value while maintaining the BST structure
-    if(this.value > value){
-      if(this.left.value === value){
-        if(this.left.left && this.left.right){
-          // need to restructure the tree
-        }
-        else if(this.left.left){
-          this.left = this.left.left;
-          return;
-        }
-        else if(this.left.right){
-          this.left = this.left.right;
-        }
-        else{
-          this.left = null;
-        }
-      }
-      else if(this.left){
-        this.left.remove(value);
-        return;
-      }
-      else {
-        return null;
-      }
-    }
-    if(this.value < value){
-      if(this.right.value === value){
-        if(this.right.left && this.left.left){
-          // need to restructure tree
-        }
-        else if(this.right.left){
-          this.right = this.right.left;
-        }
-        else if(this.right.right){
-          this.right = this.right.right;
-        }
-        else{
-          this.right = null;
-        }
-      }
-      else if(this.right){
-        this.right.remove(value);
-      }
-      else{
-        return null;
-      }
-    }
+  //   if(this.value === value){
+  //     if(this.left && this.right){
+  //       let newRoot = _findBiggest(this.left);
+  //     }
+  //   }
+  //   if(this.value > value){
+  //     if(this.left.value === value){
+  //       if(this.left.left && this.left.right){
+  //         this = _findBiggest(this.left);
+  //       }
+  //       else if(this.left.left){
+  //         this.left = this.left.left;
+  //         return;
+  //       }
+  //       else if(this.left.right){
+  //         this.left = this.left.right;
+  //       }
+  //       else{
+  //         this.left = null;
+  //       }
+  //     }
+  //     else if(this.left){
+  //       this.left.remove(value);
+  //       return;
+  //     }
+  //     else {
+  //       return null;
+  //     }
+  //   }
+  //   if(this.value < value){
+  //     if(this.right.value === value){
+  //       // if(this.right.left && this.left.left){
+  //       //   this.right = _findSmallest(this.right);
+  //       // }
+  //       else if(this.right.left){
+  //         this.right = this.right.left;
+  //       }
+  //       else if(this.right.right){
+  //         this.right = this.right.right;
+  //       }
+  //       else{
+  //         this.right = null;
+  //       }
+  //     }
+  //     else if(this.right){
+  //       this.right.remove(value);
+  //     }
+  //     else{
+  //       return null;
+  //     }
+  //   }
   }
 }
