@@ -89,7 +89,14 @@ class BinarySearchTree{
         this._remove(node.left, node.value);    // this finds the duplicate value and deletes it
       }
       else if(node.left || node.right){}
-      else{}
+      else{
+        if(parent.left === value){
+          parent.left = null;
+        }
+        else if(parent.right === value){
+          parent.right = null;
+        }
+      }
     }
     else if(node.value > value){
       if(node.left.value){
