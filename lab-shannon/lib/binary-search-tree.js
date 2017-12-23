@@ -79,38 +79,46 @@ class BinarySearchTree{
   }
 
   _remove(node, value, parent){
+    console.log(this.root, `is the root`);
+    console.log(node.value, `node.value`);
+    console.log(value, `value`);
     if(!node){
       return null;
     }
     else if(node.value === value){
       if(node.left && node.right){
         node.value = this._findBiggest(node.left);  // this copies the value of the smallest node on the left branch and assigns it as the new value of the 'deleted' node
+        // console.log(node.left);
         this._remove(node.left, node.value);    // this finds the duplicate value and deletes it
+        return;
       }
       else if(node.left){
-        if(parent.right === value){
+        if(parent.right.value === value){
           parent.right = node.left;
         }
-        else if(parent.left === value){
+        else if(parent.left.value === value){
           parent.left = node.left;
         }
+        return;
       }
       else if(node.right){
-        if(parent.right === value){
+        if(parent.right.value === value){
           parent.right = node.right;
         }
-        else if(parent.left === value){
+        else if(parent.left.value === value){
           parent.left = node.right;
         }
+        return;
       }
       else{
-        if(parent.left === value){
+        if(parent.left.value === value){
           parent.left = null;
         }
-        else if(parent.right === value){
+        else if(parent.right.value === value){
           parent.right = null;
         }
       }
+      return;
     }
     else if(node.value > value){
       if(node.left.value){
