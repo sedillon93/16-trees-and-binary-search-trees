@@ -58,6 +58,19 @@ describe(`K-Ary Tree`, () => {
     });
 
     test(`toString method should throw an error if passed an argument other than a string`, () => {
+      let four = new KAryTree(4);
+      let three = new KAryTree(3);
+      let seven = new KAryTree(7);
+      let fifteen = new KAryTree(15);
+      let two = new KAryTree(2);
+      let nine = new KAryTree(9);
+
+      four.appendChild(three);
+      three.appendChild(seven);
+      three.appendChild(fifteen);
+      three.appendChild(two);
+      fifteen.appendChild(nine);
+      
       expect(() => {
         three.toString(24).toThrow();
       });
@@ -88,8 +101,20 @@ describe(`K-Ary Tree`, () => {
     });
 
     test(`toArray method should throw a Type Error if the argument provided is not an object (i.e. array)`, () => {
+      let four = new KAryTree(4);
+      let three = new KAryTree(3);
+      let seven = new KAryTree(7);
+      let fifteen = new KAryTree(15);
+      let two = new KAryTree(2);
+      let nine = new KAryTree(9);
+
+      four.appendChild(three);
+      three.appendChild(seven);
+      three.appendChild(fifteen);
+      three.appendChild(two);
+      fifteen.appendChild(nine);
       expect(() => {
-        three.toArray(ahdsjl).toThrow();
+        three.toArray('ahdsjl').toThrow();
       });
     });
   });

@@ -118,13 +118,13 @@ class BinarySearchTree{
     }
     else if(node.value > value){
       if(node.left.value){
-        this._remove(node.left, value, node)
+        this._remove(node.left, value, node);
       }
       return null;
     }
     else if(node.value < value){
       if(node.right.value){
-        this._remove(node.right, value, node)
+        this._remove(node.right, value, node);
       }
       return null;
     }
