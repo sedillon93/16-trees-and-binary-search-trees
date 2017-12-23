@@ -88,7 +88,22 @@ class BinarySearchTree{
         node.value = this._findBiggest(node.left);  // this copies the value of the smallest node on the left branch and assigns it as the new value of the 'deleted' node
         this._remove(node.left, node.value);    // this finds the duplicate value and deletes it
       }
-      else if(node.left || node.right){}
+      else if(node.left){
+        if(parent.right === value){
+          parent.right = node.left;
+        }
+        else if(parent.left === value){
+          parent.left = node.left;
+        }
+      }
+      else if(node.right){
+        if(parent.right === value){
+          parent.right = node.right;
+        }
+        else if(parent.left === value){
+          parent.left = node.right;
+        }
+      }
       else{
         if(parent.left === value){
           parent.left = null;
@@ -110,56 +125,5 @@ class BinarySearchTree{
       }
       return null;
     }
-  }
-  //   if(this.value === value){
-  //     if(this.left && this.right){
-  //       let newRoot = _findBiggest(this.left);
-  //     }
-  //   }
-  //   if(this.value > value){
-  //     if(this.left.value === value){
-  //       if(this.left.left && this.left.right){
-  //         this = _findBiggest(this.left);
-  //       }
-  //       else if(this.left.left){
-  //         this.left = this.left.left;
-  //         return;
-  //       }
-  //       else if(this.left.right){
-  //         this.left = this.left.right;
-  //       }
-  //       else{
-  //         this.left = null;
-  //       }
-  //     }
-  //     else if(this.left){
-  //       this.left.remove(value);
-  //       return;
-  //     }
-  //     else {
-  //       return null;
-  //     }
-  //   }
-  //   if(this.value < value){
-  //     if(this.right.value === value){
-  //       // if(this.right.left && this.left.left){
-  //       //   this.right = _findSmallest(this.right);
-  //       // }
-  //       else if(this.right.left){
-  //         this.right = this.right.left;
-  //       }
-  //       else if(this.right.right){
-  //         this.right = this.right.right;
-  //       }
-  //       else{
-  //         this.right = null;
-  //       }
-  //     }
-  //     else if(this.right){
-  //       this.right.remove(value);
-  //     }
-  //     else{
-  //       return null;
-  //     }
-  //   }
+  }  
 }
