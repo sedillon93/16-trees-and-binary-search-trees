@@ -12,10 +12,9 @@ class BinarySearchTree{
   constructor(){
     this.root = null;
   }
-}
 
   insert(value){
-    if(root === null){
+    if(this.root === null){
       this.root = new TreeNode(value);
     }
     else{
@@ -37,7 +36,7 @@ class BinarySearchTree{
       this._insert(node.left, value);
       return;
     }
-    if(this.value < value){
+    if(node.value < value){
       if(!node.right){
         node.right = new TreeNode(value);
         return;
@@ -76,7 +75,7 @@ class BinarySearchTree{
   }
 
   remove(value){
-    return this._remove(node, value);
+    return this._remove(this.root, value);
   }
 
   _remove(node, value, parent){
@@ -115,15 +114,17 @@ class BinarySearchTree{
     }
     else if(node.value > value){
       if(node.left.value){
-        return this._remove(node.left, value, node)
+        this._remove(node.left, value, node)
       }
       return null;
     }
     else if(node.value > value){
       if(node.right.value){
-        return this._remove(node.right, value, node)
+        this._remove(node.right, value, node)
       }
       return null;
     }
-  }  
+  }
 }
+
+module.exports = BinarySearchTree;
