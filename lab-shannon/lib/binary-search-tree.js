@@ -58,16 +58,16 @@ class BinarySearchTree{
       return node;
     }
     else if(node.value > value){
-      return node.left._find(value);
+      return this._find(node.left, value);
     }
     else if(node.value < value){
-      return node.right._find(value);
+      return this._find(node.right, value);
     }
   }
 
   _findBiggest(node){
     if(node.right){
-      _findBiggest(node.right);
+      this._findBiggest(node.right);
     }
     else if(!node.right){
       return node;
@@ -79,9 +79,8 @@ class BinarySearchTree{
   }
 
   _remove(node, value, parent){
-    console.log(this.root, `is the root`);
-    console.log(node.value, `node.value`);
-    console.log(value, `value`);
+    // console.log(node.value, `node.value`);
+    // console.log(value, `value`);
     if(!node){
       return null;
     }
@@ -111,11 +110,14 @@ class BinarySearchTree{
         return;
       }
       else{
+        // console.log(`there are no children of ${node.value}`);
         if(parent.left.value === value){
           parent.left = null;
+          // console.log(parent, `left`);
         }
         else if(parent.right.value === value){
           parent.right = null;
+          // console.log(parent, `right`);
         }
       }
       return;
@@ -127,6 +129,7 @@ class BinarySearchTree{
       return null;
     }
     else if(node.value > value){
+      console.log(`groot`);
       if(node.right.value){
         this._remove(node.right, value, node)
       }
