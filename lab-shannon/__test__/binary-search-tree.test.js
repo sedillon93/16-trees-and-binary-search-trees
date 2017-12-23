@@ -14,13 +14,12 @@ describe(`Binary Search Tree`, () => {
   tree.insert(19);
   tree.insert(6);
 
-    test.only(`BST remove method should remove a node with the specified value and restructure the tree if necessary if there are no errors`, () => {
+    test(`BST remove method should remove a node with the specified value and restructure the tree if necessary if there are no errors`, () => {
       tree.remove(3);
       expect(tree.root.left.left).toEqual(null);
     });
-    test(`BST remove method should remove a node with the specified value and restructure the tree if necessary if there are no errors`, () => {
+    test.only(`BST remove method should remove a node with the specified value and restructure the tree if necessary if there are no errors`, () => {
       tree.remove(8);
-      console.log(tree);
-      expect(tree.root.left.right).toEqual(null);
+      expect(tree.root.left.right.value).toEqual(6);
     });
 })

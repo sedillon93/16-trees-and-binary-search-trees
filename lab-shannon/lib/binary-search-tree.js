@@ -79,8 +79,6 @@ class BinarySearchTree{
   }
 
   _remove(node, value, parent){
-    // console.log(node.value, `node.value`);
-    // console.log(value, `value`);
     if(!node){
       return null;
     }
@@ -128,8 +126,7 @@ class BinarySearchTree{
       }
       return null;
     }
-    else if(node.value > value){
-      console.log(`groot`);
+    else if(node.value < value){
       if(node.right.value){
         this._remove(node.right, value, node)
       }
